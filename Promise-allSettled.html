@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //Promise.allSettled() example
+  const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("The first promise has resolved");
+      resolve(10);
+    }, 1 * 1000);
+  });
+
+  const p2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("The second promise has rejected");
+      reject(20);
+    }, 2 * 1000);
+  });
+
+  Promise.allSettled([p1, p2]).then((result) => {
+    console.log(result);
+  });
+</script>
